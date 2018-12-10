@@ -1,0 +1,25 @@
+#target:dependency
+#(tab)command
+#(tab)command
+#...
+all:main
+
+obj=sub.o add.o main.o
+
+main:$(obj)
+	gcc sub.o add.o main.o -o main
+
+sub.o:sub.c
+	gcc -c $< -o $@
+
+add.o:add.c
+	gcc -c $< -o $@
+
+main.o:main.c
+	gcc -c $< -o $@
+
+clean:
+	rm -f $(obj)
+	rm main -f
+
+.PHONY:clean all

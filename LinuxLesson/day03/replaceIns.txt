@@ -1,0 +1,13 @@
+only words that are totally the same will be replaced
+one 
+repalceIns
+repalce
+one 
+repalceIns
+repalce
+one 
+one 
+repalceIns
+repalce
+repalceIns
+repalce

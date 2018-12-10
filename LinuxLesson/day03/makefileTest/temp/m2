@@ -1,0 +1,17 @@
+src = $(wildcard ./*.c)
+
+target = $(patsubst %.c, %, $(src))
+obj = $(patsubst $.c, %.o, $(src))
+
+all:$(target)
+
+%:%.o
+	gcc $^ -o $@
+
+%.o:%.c
+	gcc -c $^ -o $@
+
+clean:$(target)
+	rm $^ -f
+
+.PHONY:all clean

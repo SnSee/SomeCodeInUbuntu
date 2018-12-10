@@ -1,0 +1,31 @@
+
+
+# 代表注释
+
+#   目标： 依赖1 依赖2
+#      	（tab） 命令列表
+# 		（tab）....
+
+all: main
+
+add.o : add.c
+	gcc -c add.c -o add.o
+
+
+sub.o:sub.c
+	gcc -c sub.c -o sub.o
+
+main.o: main.c
+	gcc -c main.c -o main.o
+
+clean:
+	rm -f add.o sub.o main.o
+	rm -f main
+
+
+
+main : add.o sub.o  main.o
+	gcc main.o sub.o add.o -o main 
+
+# 伪目标
+.PHONY:  all clean

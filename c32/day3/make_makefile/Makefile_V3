@@ -1,0 +1,37 @@
+
+
+# 代表注释
+
+#   目标： 依赖1 依赖2
+#      	（tab） 命令列表
+# 		（tab）....
+
+
+# 变量
+obj = add.o sub.o main.o mul.o
+
+all: main
+
+main : $(obj)
+	gcc $(obj) -o main 
+
+add.o : add.c
+	gcc -c add.c -o add.o
+
+sub.o:sub.c
+	gcc -c sub.c -o sub.o
+
+mul.o:mul.c
+	gcc -c mul.c -o mul.o
+main.o: main.c
+	gcc -c main.c -o main.o
+
+clean:
+	rm -f $(obj)
+	rm -f main
+
+
+
+
+# 伪目标
+.PHONY:  all clean
